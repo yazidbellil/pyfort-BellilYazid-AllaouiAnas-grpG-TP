@@ -57,8 +57,43 @@ def epreuve_math_premier():
 
 def epreuve_roulette_mathematique():
     nb=[]
+    op=['+','-','*']
     for i in range(5):
         nb.append(random.randint(1,20))
+    print(nb)
+    res=nb[0]
+    p=random.choice(op)
+    if p=='+':
+        z=int(input("fait laddition des nombres"))
+        for i in range(1,5):
+            res=res+nb[i]
+        if z==res:
+            return True
+    if p=='-':
+        z = int(input("fait la soustraction des nombres"))
+        for i in range(1,5):
+            res=res-nb[i]
+        if z==res:
+            return True
+    if p=='*':
+        z = int(input("fait la multiplication des nombres"))
+        for i in range(1,5):
+            res=res*nb[i]
+        if z==res:
+            return True
+    return False
+
+def epreuve_math():
+    epreuves=[epreuves_math_factorielle,epreuve_math_equation,epreuve_math_premier,epreuve_roulette_mathematique]
+    epreuve=random.choice(epreuves)
+    return epreuve()
+
+
+
+
+
+
+
 
 
 
