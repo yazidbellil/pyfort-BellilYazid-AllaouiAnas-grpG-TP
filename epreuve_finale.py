@@ -1,57 +1,63 @@
 import json
 import random
 
-def salle_de_tresor():
-    # Charger les données du fichier JSON
-    with open('data/indicesSalle.json', 'r', encoding= 'utf-8') as fichier:
-        jeu_tv = json.load(fichier)
+# Charger les données depuis un fichier JSON
+def charger_donnees(fichier):
+    try:
+        with open(fichier, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print("Erreur : fichier introuvable.")
+        return None
+    except json.JSONDecodeError:
+        print("Erreur : format JSON invalide.")
+        return None
 
-    # Sélectionner une année aléatoire
-    annees = list(jeu_tv.keys())
+# Fonction principale pour la salle du trésor
+def salle_De_Tresor():
+    # Charger les données du fichier
+    fichier = "Data/indicesSalle.json"  # Nom du fichier JSON
+    donnees = charger_donnees(fichier)
+    if donnees is None:
+        return
+
+    # Sélectionner une année et une émission aléatoirement
+    annees = list(donnees["Fort Boyard"].keys())
     annee = random.choice(annees)
+    emissions = list(donnees["Fort Boyard"][annee].keys())
+    emission = random.choice(emissions)
 
-    # Sélectionner une émission aléatoire pour l'année choisie
-    emissions = jeu_tv[annee]
-    emission = random.choice(list(emissions.keys()))
+    # Extraire les indices et le mot-code
+    indices = donnees["Fort Boyard"][annee][emission]["Indices"]
+    mot_code = donnees["Fort Boyard"][annee][emission]["MOT-CODE"]
 
-    # Extraire les indices et le mot-code correspondant
-    indices = emissions[emission]['Indices']
-    mot_code = emissions[emission]['MOT-CODE']
-
-    # Afficher les trois premiers indices
-    print("Voici vos indices :")
+    print("\nBienvenue dans la salle du trésor !")
+    print("Voici les trois premiers indices :")
     for indice in indices[:3]:
         print(f"- {indice}")
 
-    # Initialiser les variables
-    essais = 3
-    reponse_correcte = False
+    essais_restants = 3
+    reussi = False
 
-    # Boucle principale du jeu
-    while essais > 0:
-        # Demander une réponse au joueur
-        reponse = input("Entrez le mot-code : ").strip()
-
+    # Boucle des essais
+    while essais_restants > 0:
+        reponse = input("\nEntrez votre mot-code : ").strip().upper()
         if reponse == mot_code:
-            reponse_correcte = True
+            reussi = True
             break
         else:
-            essais -= 1
-            if essais > 0:
-                print(f"Incorrect ! Il vous reste {essais} essai(s).")
-                if len(indices) > 3:
-                    print(f"Indice supplémentaire : {indices[3]}\n")
+            essais_restants -= 1
+            if essais_restants > 0:
+                print(f"Mauvaise réponse. Indice supplémentaire : {indices[3 + essais_restants]}")
+                print(f"Essais restants : {essais_restants}")
             else:
-                print("Désolé, vous avez épuisé tous vos essais.")
-                print(f"Le mot-code correct était : {mot_code}")
+                print("Mauvaise réponse. Vous n'avez plus d'essais.")
 
-    # Afficher le résultat final
-    if reponse_correcte:
-        print("Félicitations ! Vous avez trouvé le mot-code !")
+    # Résultat final
+    if reussi:
+        print("\nFélicitations ! Vous avez trouvé le mot-code et accédé au trésor !")
     else:
-        print("Dommage, vous avez perdu.")
+        print(f"\nVous avez échoué. Le mot-code correct était : {mot_code}")
 
-# Appeler la fonction principale
-    return salle_de_tresor()
-print(salle_de_tresor())
-
+# Appel de la fonction
+print(salle_De_Tresor())
