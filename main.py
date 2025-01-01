@@ -9,9 +9,7 @@ def jeu():
     cle=0
     print(introduction())
     equipe=composer_equipe()
-    while cle<3:
-        for i in range(len(equipe)):
-            cle+= equipe[i]["clé_gagner"]
+    while cle<4:
         ch= menu_epreuves()
         player= choisir_joueur(equipe)
         if ch==1:
@@ -22,9 +20,11 @@ def jeu():
             epreuve=epreuve_hasard()
         if ch==4:
             epreuve=enigme_pere_fouras()
-        if epreuve==True:
+        if epreuve == True:
             for i in range(len(equipe)):
                 if player==equipe[i]:
                     equipe[i]["clé_gagner"]+=1
+        for i in range(len(equipe)):
+            cle+= equipe[i]["clé_gagner"]
     print(salle_De_Tresor())
 print(jeu())

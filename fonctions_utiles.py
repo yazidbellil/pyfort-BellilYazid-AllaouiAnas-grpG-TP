@@ -23,7 +23,7 @@ def composer_equipe():
             r=r+1
         l.append(equipe)
     if r==0:
-        l[0]['leader']="Leader"
+        l[0]['role']="Leader"
     return l
 
 def menu_epreuves():
