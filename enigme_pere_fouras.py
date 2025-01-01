@@ -41,6 +41,5 @@ def enigme_pere_fouras():
                 print(f"La bonne réponse était : {enigme['reponse']}.")
                 return False
 
-print(enigme_pere_fouras())
 
 

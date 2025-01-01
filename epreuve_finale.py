@@ -59,5 +59,4 @@ def salle_De_Tresor():
     else:
         print(f"\nVous avez échoué. Le mot-code correct était : {mot_code}")
 
-# Appel de la fonction
-print(salle_De_Tresor())
+
