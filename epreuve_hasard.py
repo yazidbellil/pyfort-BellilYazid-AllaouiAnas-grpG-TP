@@ -13,7 +13,7 @@ def bonneteau():
     bonneteaux = ['A', 'B', 'C']
     essais = 2  # Nombre d'essais autorisés
 
-    # Introduction à l'épreuve
+     # Introduction à l'épreuve
     print("Bienvenue à l'épreuve du Bonneteau !")
     print("Une clé est cachée sous un des bonneteaux : A, B ou C.")
     print(f"Vous avez {essais} essais pour la trouver.\n")

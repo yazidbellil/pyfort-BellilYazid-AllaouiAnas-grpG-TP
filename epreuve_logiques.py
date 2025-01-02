@@ -16,7 +16,7 @@ def afficher_plateau(plateau):
         print("-" * 5)  # Affiche une ligne de séparation entre les rangées
 
 
-# Fonction pour vérifier si un joueur a gagné
+ # Fonction pour vérifier si un joueur a gagné
 def verifier_victoire(plateau, symbole):
     """
     Vérifie si un joueur (ou l'ordinateur) a gagné la partie.

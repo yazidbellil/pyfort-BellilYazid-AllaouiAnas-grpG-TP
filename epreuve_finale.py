@@ -62,7 +62,7 @@ def salle_De_Tresor():
     emissions = list(donnees["Fort Boyard"][annee].keys())
     emission = random.choice(emissions)
 
-    # Extraire les indices et le mot-code
+     # Extraire les indices et le mot-code
     indices = donnees["Fort Boyard"][annee][emission]["Indices"]
     mot_code = donnees["Fort Boyard"][annee][emission]["MOT-CODE"]
 

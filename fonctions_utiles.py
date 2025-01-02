@@ -76,7 +76,7 @@ def menu_epreuves():
             print("Veuillez entrer un nombre entier valide.")
 
 
-# Fonction pour choisir un joueur de l'équipe
+ # Fonction pour choisir un joueur de l'équipe
 def choisir_joueur(l):
     """
     Permet de choisir un joueur de l'équipe pour participer à une épreuve.

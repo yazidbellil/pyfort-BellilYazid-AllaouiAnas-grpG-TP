@@ -53,7 +53,7 @@ def enigme_pere_fouras():
 
     # Boucle pour les essais
     while nombre_essais > 0:
-        # Demander la réponse au joueur
+    # Demander la réponse au joueur
         reponse = input("Votre réponse : ").strip().lower()
 
         # Vérifier si la réponse est correcte

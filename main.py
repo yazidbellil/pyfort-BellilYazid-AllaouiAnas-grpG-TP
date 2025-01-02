@@ -35,7 +35,7 @@ def jeu():
         elif ch == 4:
             epreuve = enigme_pere_fouras()  # Énigme du Père Fouras
 
-        # Si l'épreuve est réussie, le joueur gagne une clé
+         # Si l'épreuve est réussie, le joueur gagne une clé
         if epreuve == True:
             for i in range(len(equipe)):
                 if player == equipe[i]:  # Trouver le joueur correspondant dans l'équipe

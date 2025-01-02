@@ -83,7 +83,7 @@ def epreuve_math_equation():
         return False
 
 
-# Fonction pour vérifier si un nombre est premier
+ # Fonction pour vérifier si un nombre est premier
 def est_premier(n):
     """
     Vérifie si un nombre est premier.
