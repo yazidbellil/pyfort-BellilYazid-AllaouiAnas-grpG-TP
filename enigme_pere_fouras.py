@@ -15,7 +15,7 @@ def charger_enigmes(fichier):
     Résultat retourné :
     - enigmes (list) : Une liste de dictionnaires, chaque dictionnaire contenant une question et sa réponse associée.
     """
-    with open(fichier, "r") as f:
+    with open(fichier, "r", encoding='utf-8') as f:
         enigmes = json.load(f)
     return enigmes
 
