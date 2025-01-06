@@ -106,3 +106,4 @@ def epreuve_hasard():
 
     # Exécuter l'épreuve sélectionnée
     return epreuve()
+print(epreuve_hasard())
